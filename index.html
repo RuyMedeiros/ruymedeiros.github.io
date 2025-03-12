@@ -1,62 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meu Portfólio</title>
+    <title>Meu Portfólio Profissional</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset básico */
+        body, h1, h2, p, ul, li {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #333;
+
+        /* Estilos globais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #8B0000, #000000);
             color: #fff;
-            padding: 20px;
-            text-align: center;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        section {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
+
+        .container {
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            max-width: 600px;
             width: 100%;
         }
-        a {
-            color: #0077cc;
-            text-decoration: none;
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin-bottom: 20px;
         }
-        a:hover {
-            text-decoration: underline;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff4d4d;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            background: #ff4d4d;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .links a:hover {
+            background: #cc0000;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #ccc;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo ao Meu Portfólio!</h1>
-    </header>
+    <div class="container">
+        <!-- Adicione sua foto de perfil aqui -->
+        <img src="caminho/para/sua-foto.jpg" alt="Sua Foto" class="profile-img">
 
-    <section>
-        <h2>Sobre Mim</h2>
-        <p>Olá! Meu nome é [Ruy Medeiros], e sou [estudante de engenharia da computação e desenvolvedor python iniciante]. Aqui você pode conhecer um pouco sobre meus projetos e habilidades.</p>
+        <h1>Ruy Medeiros</h1>
+        <h2>Beginner Developer Python</h2>
+
+        <p>
+            Olá! Sou um estudante de engenharia da computação apaixonado pela linguagem python. 
+            Aqui você pode conhecer mais sobre mim e meus projetos.
+        </p>
+
+        <!-- Links para apresentação e projetos -->
+        <div class="links">
+            <a href="#apresentacao">Apresentação</a>
+            <a href="#projetos">Projetos</a>
+        </div>
+    </div>
+
+    <!-- Seção de Apresentação -->
+    <section id="apresentacao" style="display: none; padding: 50px; text-align: center;">
+        <h2>Apresentação</h2>
+        <p>
+            Aqui você pode escrever uma breve descrição sobre você, suas habilidades, experiências e objetivos profissionais.
+        </p>
+        <a href="#" onclick="hideSection('apresentacao')">Fechar</a>
     </section>
 
-    <section>
-        <h2>Meus Projetos</h2>
+    <!-- Seção de Projetos -->
+    <section id="projetos" style="display: none; padding: 50px; text-align: center;">
+        <h2>Projetos</h2>
         <ul>
-            <li><a href="https://github.com/seu-usuario/projeto1">Projeto 1</a> - Breve descrição do projeto.</li>
-            <li><a href="https://github.com/seu-usuario/projeto2">Projeto 2</a> - Breve descrição do projeto.</li>
+            <li><a href="https://github.com/seu-usuario/projeto1" target="_blank">Projeto 1</a></li>
+            <li><a href="https://github.com/seu-usuario/projeto2" target="_blank">Projeto 2</a></li>
+            <li><a href="https://github.com/seu-usuario/projeto3" target="_blank">Projeto 3</a></li>
         </ul>
+        <a href="#" onclick="hideSection('projetos')">Fechar</a>
     </section>
 
+    <!-- Rodapé -->
     <footer>
-        <p>© 2023 [Ruy Medeiros]. Todos os direitos reservados.</p>
+        <p>© 2023 Ruy Medeiros. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Função para mostrar e esconder seções
+        function showSection(sectionId) {
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function hideSection(sectionId) {
+            document.getElementById(sectionId).style.display = 'none';
+        }
+
+        // Adiciona eventos aos links
+        document.querySelector('.links a[href="#apresentacao"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('apresentacao');
+        });
+
+        document.querySelector('.links a[href="#projetos"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection('projetos');
+        });
+    </script>
 </body>
 </html>
